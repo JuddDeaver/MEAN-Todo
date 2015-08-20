@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="polls_app" ng-controller="pollsController as pC">
+  <head>
+    <title ng-bind= pC.title></title>
+ <!-- THESE TWO VERSIONS BELOW MUST MATCH!!!! -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.js"></script>
+ 
+ <!-- My modules here -->
+    <script type="text/javascript" src="../modules/app.js"></script>
+    <script type="text/javascript" src="../controllers/polls.js"></script>
+    <script type="text/javascript" src="../factories/polls.js"></script>
+
+  </head>
+  <body>
+    <div>
+        <a href="#/">Login</a> | <a href="#/dashboard">Dashboard</a> | <a href="#/survey">survey</a> | <a href="#/create">create</a>
+        <div ng-view="">
+        </div>
+    </div>
+  </body>
+</html>

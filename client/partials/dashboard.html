@@ -1,0 +1,24 @@
+<div>
+	<a href="#/create"></a> <a href="#/logout"></a> 
+	<label for="poll_table">Current Polls:</label>
+	<input type="text" ng-model="filter_name" placeholder="filter">
+	<div id="poll_table">
+		<table>
+			<thead>
+				<th>Name</th>
+				<th>Survey Question</th>
+				<th>Date Posted</th>
+				<th>Action</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td ng-repeat="poll in pC.polls | filter: filter_name">
+					<td ng-bind=pC.polls[0].createdBy></td>
+					<td><a href="#/poll/{{pC.polls[0]._id}}" ng-bind=pC.polls[0].question></a></td>
+					<td ng-bind="pC.polls[0].createdAt | date:'MMM dd yyyy'"></td>
+					<td ng-if="pC.loginName === pC.polls[0].createdBy"><a href="#/remove/{{pC.polls[0]._id}}"><button>Delete</button></a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div> <!-- post_table -->
+</div>

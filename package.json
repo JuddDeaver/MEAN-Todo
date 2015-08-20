@@ -1,0 +1,9 @@
+{
+  "name": "poll",
+  "version": "0.0.1",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "express": "~4.2.0",
+    "mongoose": "latest"
+  }
+}
