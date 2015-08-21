@@ -1,4 +1,4 @@
-<div ng-init='that.title = "Dashboard"'>
+<div ng-init='pC.title = "Dashboard"'>
 	<a href="#/create"></a> <a href="#/logout"></a> 
 	<label for="poll_table">Current Polls:</label>
 	<input type="text" ng-model="filter_name" placeholder="filter">
@@ -13,7 +13,7 @@
 			<tbody>
 				<tr ng-repeat="poll in pC.polls | filter: filter_name">
 					<td ng-bind=poll.createdBy></td>
-					<td><a ng-bind=poll.question ng-click="pC.getPoll(poll)"></a></td>
+					<td><a ng-bind=poll.question ng-click='pC.getPoll(poll._id)'></a></td>
 					<td ng-bind="poll.createdAt | date:'MMM dd yyyy'"></td>
 					<td ng-if="pC.loginName === poll.createdBy"><button ng-click="pC.removePoll(poll)">Delete</button></a>
 					</td>

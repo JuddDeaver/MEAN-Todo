@@ -52,12 +52,12 @@ module.exports = (function() {
       console.log("polls show function", req.params.id)
     poll.find(
     {_id: req.params.id},
-    function(err, results) {
-      if(err) {
-        // console.log(err);
-      } else {
-        res.json(results);
-      }
+      function(err, results) {
+       if(err) {
+         console.log(err);
+       } else {
+         res.json(results);
+       }
     })
   },
 

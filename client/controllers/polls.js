@@ -42,10 +42,11 @@ polls_app.controller('pollsController', function($scope, pollFactory, $location)
       $location.path("/dashboard");
     });
   }
-  that.getPoll = function(poll) {
-    pollFactory.getPoll(poll, function(data) {
+  that.getPoll = function(_id) {
+    console.log("getPoll function", _id);
+    pollFactory.getPoll(_id, function(data) {
       that.poll = data;
-      console.log("getPoll function", poll._id);
+      $location.path("/poll/" + _id);
     });
   }
   that.removePoll = function (poll){

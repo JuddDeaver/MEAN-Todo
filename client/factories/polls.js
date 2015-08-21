@@ -8,8 +8,9 @@
         callback(output);
       })
     }
-    factory.getPoll = function(poll, callback) {
-      $http.get('poll/' + poll._id).success(function(output) {
+    factory.getPoll = function(_id, callback) {
+      console.log("factory getPoll", _id);
+      $http.get('poll/' + _id).success(function(output) {
         callback(output);
       })
     }

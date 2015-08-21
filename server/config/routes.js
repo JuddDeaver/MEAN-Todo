@@ -5,11 +5,11 @@ var poll = require('./../controllers/polls.js');
   // This is where we will define all of our routing rules!
   // We will have to require this in the server.js file (and pass it app!)
   module.exports = function(app) {
-	app.get('/poll/:id', function(req, res) {
-		poll.show(req,res);
-	})
 	app.get('/polls', function(req, res) {
 		poll.index(req, res);
+	})
+	app.get('/poll/:id', function(req, res) {
+		poll.show(req,res);
 	})
 	app.post('/poll', function(req, res) {
 	  poll.create(req, res);
