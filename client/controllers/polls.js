@@ -5,7 +5,6 @@ polls_app.controller('pollsController', function($scope, pollFactory, $location)
 
   that.polls = pollFactory.getPolls(function(data) {
     that.polls = data;
-    console.log("controller getPolls:", that.polls[0].question);
   });
 
   that.getPolls = function() {
@@ -40,12 +39,20 @@ polls_app.controller('pollsController', function($scope, pollFactory, $location)
     pollFactory.addPoll(poll, function(data) {
       that.polls = data;
       that.poll = {};
+      $location.path("/dashboard");
+    });
+  }
+  that.getPoll = function(poll) {
+    pollFactory.getPoll(poll, function(data) {
+      that.poll = data;
+      console.log("getPoll function", poll._id);
     });
   }
   that.removePoll = function (poll){
     pollFactory.removePoll(poll, function(data) {
       that.polls = data;
       that.poll = {};
+      $location.path("/dashboard");
     });
   }
   that.loginUser = function(login) {

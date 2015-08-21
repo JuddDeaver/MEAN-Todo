@@ -41,21 +41,20 @@ module.exports = (function() {
       {},
       function(err, results) {
        if(err) {
-      console.log("polls index function err:", err)
          console.log(err);
        } else {
-      console.log("polls index function results", results)
          res.json(results);
        }
    })
   },
   // Show (Single Record)
   show: function(req, res) {
+      console.log("polls show function", req.params.id)
     poll.find(
     {_id: req.params.id},
     function(err, results) {
       if(err) {
-        console.log(err);
+        // console.log(err);
       } else {
         res.json(results);
       }
@@ -66,7 +65,6 @@ module.exports = (function() {
   // Edit (get)
   // Update (post)
 
-
 // Destroy
   // Delete
   delete: function(req,res) {
@@ -76,12 +74,16 @@ module.exports = (function() {
         if (err) {
           console.log(err);
         } else {
-          poll.find({},function(err,data){
-            res.json(data);
-          })
+          poll.find(
+            req.params.id,
+            function(err,data){
+              res.json(data);
+            }
+          )
+        }
       }
-    });
-
+    )
+  },
 
 
 
@@ -95,9 +97,6 @@ module.exports = (function() {
   //             }
   //         });
   //     })
-  }
 
-
- }
-})();
+}})();
 // note that this is just a code snippet of the show method from the object returned in the controller (this includes the exports module.exports

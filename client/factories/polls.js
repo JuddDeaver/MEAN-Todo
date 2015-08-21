@@ -8,6 +8,11 @@
         callback(output);
       })
     }
+    factory.getPoll = function(poll, callback) {
+      $http.get('poll/' + poll._id).success(function(output) {
+        callback(output);
+      })
+    }
     factory.removePoll = function(poll, callback) {
       $http.delete('poll/' + poll._id).success(function(output) {
         callback(output);
